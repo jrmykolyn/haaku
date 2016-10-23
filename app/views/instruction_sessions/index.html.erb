@@ -1,0 +1,12 @@
+<h1>View All Instruction Sessions</h1>
+<% if !@instruction_sessions.empty? %>
+	<% @instruction_session.each do | s | %>
+		<div>
+			<h2><%= link_to s.title, instruction_session_path( s ) %></h2>
+		</div>
+	<% end %>
+<% else %>
+	<h2>Whoops, looks like you haven't created any sessions yet!</h2>
+<% end %>
+
+<%= link_to 'Create New Session', new_instruction_session_path %>
