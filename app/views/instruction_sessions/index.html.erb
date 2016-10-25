@@ -1,6 +1,6 @@
 <h1>View All Instruction Sessions</h1>
 <% if !@instruction_sessions.empty? %>
-	<% @instruction_session.each do | s | %>
+	<% @instruction_sessions.each do | s | %>
 		<div>
 			<h2><%= link_to s.title, instruction_session_path( s ) %></h2>
 		</div>
