@@ -1,0 +1,8 @@
+<h1>View All Students</h1>
+<% if @students && !@students.empty? %>
+	<% @students.each do | student | %>
+		<h2><%= student.name %></h2>
+	<% end %>
+<% else %>
+	<h2>Whoops, looks like there aren't any students yet!</h2>
+<% end %>

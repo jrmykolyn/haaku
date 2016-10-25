@@ -7,7 +7,7 @@ class InstructionSessionsController < ApplicationController
 
 
 	def new
-		# ...
+		@instruction_session = InstructionSession.new
 	end
 
 

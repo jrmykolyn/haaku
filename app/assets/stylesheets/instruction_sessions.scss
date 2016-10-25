@@ -1,3 +1,48 @@
 // Place all the styles related to the InstructionSessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/**
+ * ...
+ */
+.form-input-wrap {
+	display: block;
+}
+
+
+/**
+ * ...
+ */
+.load-more-wrap {
+	width: 100%;
+	max-width: 300px; /// TEMP
+	position: relative;
+	background-color: #EFEFEF;
+	float: left;
+
+	input {
+		width: 100%;
+		display: block;
+	}
+}
+
+
+/**
+ * ...
+ */
+ .load-more-results {
+ 	width: 100%;
+ 	height: auto;
+ 	display: block;
+ 	background-color: #FFF;
+ 	margin: 0;
+ 	padding: 0;
+ 	position: absolute;
+ 	top: 100%;
+ 	left: 0;
+
+ 	li {
+ 		margin: 0;
+ 		padding: 8px;
+ 	}
+ }
