@@ -1,0 +1,17 @@
+<h1>View Instruction Session</h1>
+<h2><%= @instruction_session.title %></h2>
+<p><%= @instruction_session.description %></p>
+<h3>Attended By</h3>
+	<ul>
+	<% if !@instruction_session.attendance_records.empty? %>
+		<% @instruction_session.attendance_records.each do | record | %>
+		<li><%= record.user.name %></li>
+		<% end %>
+	<% else %>
+		<li><p>Whoops, looks like no one attended this session!</p></li>
+	<% end %>
+	</ul>
+	
+
+
+<%= link_to 'Back To All Sessions', instruction_sessions_path %>

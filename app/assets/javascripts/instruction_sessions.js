@@ -1,14 +1,14 @@
 console.log( 'INSIDE "instruction_sessions.js"' ); /// TEMP
 
-$( document ).ready( function() {
+$( document ).on( 'turbolinks:load', function() {
 	console.log( 'INSIDE DOCUMENT READY' ); /// TEMP
 
 	/* -------------------------------------------------- */
 	/* DECLARE VARS */
 	/* -------------------------------------------------- */
 	var fetch_student_input = $( '#fetch_student_data_input' );
-	var fetch_student_btn = $( '#fetch_student_data_btn' );
 	var results_elem = $( '.load-more-results' );
+	var students_elem = $( '.students-list' );
 	var student_endpoint = '/students';
 
 	var timeout = null;
@@ -37,8 +37,17 @@ $( document ).ready( function() {
 
 
 	function outputStudentData( data ) {
+		// Loop over data, build HTML elems and append to DOM
 		data.forEach( function( elem, i ) {
-			output = $( '<li>' ).append( elem.name );
+			var output = $( '<li>' ).append( elem.name );
+
+			var field = $( '<input>' )
+				.attr( 'type', 'hidden' )
+				.attr( 'name', 'instruction_session[attendance_records_attributes][' + Math.floor( Math.random() * 1000 ) + '][user_id]' )
+				.val( elem.id );
+
+			output.append( field )
+
 			results_elem.append( output );
 		} );
 	}
@@ -48,8 +57,6 @@ $( document ).ready( function() {
 	/* EVENT */
 	/* -------------------------------------------------- */
 	fetch_student_input.on( 'keyup', function( e ) {
-		console.log( 'INSIDE `keyup` EVENT' ); /// TEMP
-
 		var _this = $( this );
 
 		if ( timeout ) { clearTimeout( timeout ) }
@@ -62,4 +69,15 @@ $( document ).ready( function() {
 	} );
 
 
+	results_elem.on( 'click', 'li', function( e ) {
+
+		// Clear input field.
+		fetch_student_input.val('');
+
+		// Clear 'results' list.
+		$( e.delegateTarget ).children().remove();
+
+		// ...
+		students_elem.append( e.target ); /// TEMP
+	} );
 } );
