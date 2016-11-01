@@ -22,8 +22,8 @@ $nav: '.nav';
  * ...
  */
 #{$nav}__inner {
-	width: 100%;
-	height: 100%;
+	@include size(100%);
+
 	display: block;
 	margin: 0 auto;
 	padding: 6px 15px;
@@ -34,11 +34,11 @@ $nav: '.nav';
  * ...
  */
 .logo-wrap {
-	width: 160px; /// TEMP
+	@include size(160px, 100%);
+
 	max-width: 20%;
-	height: 100%;
 	display: block;
-	background-color: rgba(0,0,0,0.5);
+	background-color: $color-placeholder; /// TEMP
 	float: left;
 }
 
@@ -47,11 +47,11 @@ $nav: '.nav';
  * ...
  */
 .nav-links-wrap {
-	width: auto;
+	@include size(auto, 100%);
+
 	max-width: 75%;
-	height: 100%;
 	display: block;
-	background-color: rgba(0,0,0,0.5);
+	background-color: $color-placeholder; /// TEMP
 	margin: 0;
 	padding: 0;
 	float: right;
@@ -62,8 +62,56 @@ $nav: '.nav';
  *
  */
 .nav-cta {
-	height: 100%;
-	width: 50px;
+	@include size(50px, 100%);
+
 	display: block;
-	background-color: rgba(0,0,0,0.5);
+	background: $color-placeholder; /// TEMP
+	position: relative;
+	float: left;
+
+	&:not(:last-child) {
+		margin-right: 20px;
+	}
+}
+
+
+/**
+ * ...
+ */
+.nav-toggle {
+	@include size(70%, 3px);
+
+	display: block;
+	background-color: #000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+	&:before,
+	&::before,
+	&:after,
+	&::after {
+		@include size(100%);
+
+		content: '';
+		display: block;
+		background-color: #000;
+
+		position: absolute;
+		left: 0;
+	}
+
+	&:before,
+	&::before {
+		top: -300%;
+	}
+
+	&:after,
+	&::after {
+		bottom: -300%;
+	}
 }
