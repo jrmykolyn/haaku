@@ -34,7 +34,7 @@ $nav: '.nav';
  * ...
  */
 .logo-wrap {
-	@include size(160px, 100%);
+	@include size(160px 100%);
 
 	max-width: 20%;
 	display: block;
@@ -47,7 +47,7 @@ $nav: '.nav';
  * ...
  */
 .nav-links-wrap {
-	@include size(auto, 100%);
+	@include size(auto 100%);
 
 	max-width: 75%;
 	display: block;
@@ -62,7 +62,7 @@ $nav: '.nav';
  *
  */
 .nav-cta {
-	@include size(50px, 100%);
+	@include size(50px 100%);
 
 	display: block;
 	background: $color-placeholder; /// TEMP
@@ -79,7 +79,7 @@ $nav: '.nav';
  * ...
  */
 .nav-toggle {
-	@include size(70%, 3px);
+	@include size(70% 3px);
 
 	display: block;
 	background-color: #000;
