@@ -7,18 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="nav">
-		<div class="nav__inner">
-			<div class="logo-wrap"></div>
-			<ul class="nav-links-wrap">
-				<div class="nav-cta">
-				</div>
-				<div class="nav-cta">
-					<div class="nav-toggle"></div>
-				</div>
-			</ul>
-		</div>
-	</nav>
+	<header>
+		<section class="pre-header">
+			<div class="alert-wrap"><%= alert %></div>
+			<div class="notice-wrap"><%= notice %></div>
+		</section>
+		<nav class="nav">
+			<div class="nav__inner">
+				<div class="logo-wrap"></div>
+				<ul class="nav-links-wrap">
+					<% if ( current_user ) %>
+						<div class="nav-cta">
+							<span><%= current_user.email %></span>
+						</div>
+						<div class="nav-cta">
+							<%= link_to 'Log Out', logout_path %>
+						</div>
+					<% else %>
+						<div class="nav-cta">
+							<%= link_to 'Log In', new_login_path %>
+						</div>
+					<% end %>
+					<div class="nav-cta">
+						<div class="nav-toggle"></div>
+					</div>
+				</ul>
+			</div>
+		</nav>
+	</header>
 	<main class="container">
 		<%= yield %>
 	</main>
