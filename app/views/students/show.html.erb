@@ -1,0 +1,10 @@
+<h2><%= @student.name %></h2>
+<% if @student.attendance_records.length %>
+	<ul>
+	<% @student.attendance_records.each do | record | %>
+		<li><%= record.instruction_session.title %></li>
+	<% end %>
+	</ul>
+<% else %>
+	<p>Whoops, looks like <%= @student.name %> hasn't attended any instruction sessions.</p>
+<% end %>
