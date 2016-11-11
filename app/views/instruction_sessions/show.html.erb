@@ -5,7 +5,7 @@
 	<ul>
 	<% if !@instruction_session.attendance_records.empty? %>
 		<% @instruction_session.attendance_records.each do | record | %>
-		<li><%= record.user.name %></li>
+		<li><%= record.student.name %></li>
 		<% end %>
 	<% else %>
 		<li><p>Whoops, looks like no one attended this session!</p></li>
