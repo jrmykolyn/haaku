@@ -4,12 +4,12 @@ class StudentsController < ApplicationController
 	def index
 		if request.xhr?
 
-			@students = User.where( "role = ? AND name LIKE ?", "student", "%#{params[:user_name]}%" )
+			@students = Student.where( "name LIKE ?", "%#{params[:user_name]}%" )
 
 			render :json => @students
 		else
 
-			@students = User.where( { :role => 'student' } )
+			@students = Student.all
 
 			begin
 				@students.length
