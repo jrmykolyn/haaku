@@ -5,4 +5,12 @@
     <p>Whoops! Looks like the start date info isn't available for this cohort.</p>
 <% end %>
 
+<% if @cohort.students.length %>
+    <ul>
+    <% @cohort.students.each do | s | %>
+        <li><%= link_to( s.name, student_path( s ) ) %></li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= link_to( 'Back', cohorts_path ) %>
