@@ -1,0 +1,9 @@
+<h1>View All Cohorts</h1>
+<% if @cohorts %>
+    <% @cohorts.each do | cohort | %>
+        <div class="post-preview">
+            <h2><%= link_to( cohort.name, cohort_path( cohort ) ) %></h2>
+            <p>Total Students: <%= cohort.students.length %><p>
+        </div>
+    <% end %>
+<% end %>

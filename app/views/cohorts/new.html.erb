@@ -1,0 +1,23 @@
+<h1>New Cohort</h1>
+<%= form_for( @cohort ) do | f | %>
+<div class="form-content">
+    <div class="form-section">
+        <div class="form-section__header">
+            <h2>Cohort Info</h2>
+        </div>
+        <div class="form-section__body">
+            <div class="form-input-wrap">
+                <%= f.label :name %>
+                <%= f.text_field :name %>
+            </div>
+            <div class="form-input-wrap">
+                <%= f.label :start_date %>
+                <%= f.date_field :start_date %>
+            </div>
+        </div>
+    </div><!-- /.form-section -->
+</div><!-- /.form-content -->
+<div class="form-controls">
+    <%= f.submit %>
+</div><!-- /.form-controls -->
+<% end %>

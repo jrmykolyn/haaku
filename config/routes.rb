@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :instruction_sessions, path: 'sessions'
 
   resources :students
+  resources :cohorts
 
   resources :dashboard, only: [ 'index' ]
 
