@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   # Override default path with '/sessions'.
   resources :instruction_sessions, path: 'sessions'
 
-  resources :students, only: [ 'index', 'show' ]
+  resources :students, only: [ 'index', 'show', 'new' ]
 
   resources :dashboard, only: [ 'index' ]
 
