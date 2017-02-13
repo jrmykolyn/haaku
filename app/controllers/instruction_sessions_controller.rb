@@ -2,7 +2,7 @@ class InstructionSessionsController < ApplicationController
 
 
 	def index
-		@instruction_sessions = InstructionSession.all
+		@instruction_sessions = InstructionSession.where( { :user_id => current_user.id } )
 	end
 
 
