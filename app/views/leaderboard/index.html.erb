@@ -1,0 +1,10 @@
+<section class="page-header">
+	<h1>Leaderboard</h1>
+</section>
+<section class="page-body">
+	<% @students.reverse.each do | student | %>
+	<article>
+		<a href="<%= student_path ( student ) %>"><h2><%= student.name %> | <%= student.attendance_records.length %></h2></a>
+	</article>
+	<% end %>
+</section>
