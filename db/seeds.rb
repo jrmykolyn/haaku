@@ -7,6 +7,18 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+first_names = [ 'John', 'Jane', 'Jill', 'George', 'Steve', 'Bob', 'Jen' ]
+last_names = [ 'Brown', 'Black', 'Smith', 'Eagles', 'Roberston' ]
+
+
+# Create test user data.
+5.times do | n |
+	name = "#{first_names.sample} #{last_names.sample}"
+
+	User.create( { :name => name, :email => "test#{n}@test.com", :password => "123456", :password_confirmation => "123456" } )
+end
+
+
 # Assign array of mock `Student` data.
 students = [
 	{ :name => 'Jeremy Kolyn', :email => 'jeremy.kolyn@test.com', :sex => 'm' },
@@ -24,7 +36,9 @@ instruction_session_opts = {
 	:titles => [
 		'Review of MVC Architecture',
 		'Introduction to Route Helper Methods',
-		'Working With Views'
+		'Working With Views',
+		'Instroduction to DOM Manipulation',
+		'Intro to RWD'
 	]
 }
 
@@ -39,6 +53,7 @@ instruction_session_opts = {
 	ins.date = Date.new
 	ins.started_at = Time.new
 	ins.ended_at = Time.new
+	ins.user_id = User.all.sample[ :id ]
 
 	# Save record to database.
 	ins.save
