@@ -1,1 +1,13 @@
-<h1>INSIDE `instruction_session_notes` 'index.html.erb'</h1>
+<h1>View All Instruction Sessions</h1>
+<% if !@notes.empty? %>
+	<% @notes.each do | note | %>
+		<div>
+			<% # TODO[@jrmykolyn] - Update `InstructionSessionNote` route helper methods (make them more concise) %>
+			<h2><%= link_to note.title, instruction_session_instruction_session_note_path( note.session, note ) %></h2>
+		</div>
+	<% end %>
+<% else %>
+	<h2>Whoops, looks like you haven't created any notes for this session yet!</h2>
+<% end %>
+
+<%= link_to 'Create New Note', new_instruction_session_instruction_session_note_path %>
