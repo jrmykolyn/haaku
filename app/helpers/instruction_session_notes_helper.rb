@@ -1,0 +1,2 @@
+module InstructionSessionNotesHelper
+end

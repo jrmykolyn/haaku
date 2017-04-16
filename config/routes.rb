@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   # Bulk define routes for InstructionSession controller/views,
   # Override default path with '/sessions'.
-  resources :instruction_sessions, path: 'sessions'
+  resources :instruction_sessions, path: 'sessions' do
+      resources :instruction_session_notes, path: 'notes'
+  end
 
   resources :students
   resources :cohorts
