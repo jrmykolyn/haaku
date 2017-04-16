@@ -2,7 +2,7 @@
 <% if @student.cohort %>
 <%= link_to( @student.cohort.name, cohort_path( @student.cohort ) ) %>
 <% else %>
-<p>Whools, looks like this student isn't part of a cohort?</p>
+<p>Whoops, looks like this student isn't part of a cohort?</p>
 <% end %>
 
 <% if @student.attendance_records.length %>
