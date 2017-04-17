@@ -1,0 +1,24 @@
+<h1>Create New Instruction Session Note</h1>
+<%= form_for( [ @session, @note ] ) do | form | %>
+	<div class="form-content">
+		<%= form.text_field :instruction_session_id, { :value => 1, :type => "hidden" }%>
+		<div class="form-section">
+			<div class="form-section__header">
+				<h2>Details</h2>
+			</div>
+			<div class="form-section__body">
+				<div class="form-input-wrap">
+					<%= form.label :title %>
+					<%= form.text_field :title %>
+				</div>
+				<div class="form-input-wrap">
+					<%= form.label :text %>
+					<%= form.text_area :text %>
+				</div>
+			</div>
+		</div><!-- .form-section -->
+	</div>
+	<div class="form-controls">
+		<%= form.submit %>
+	</div>
+<% end %>
