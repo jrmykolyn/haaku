@@ -8,7 +8,7 @@
 <% if @student.attendance_records.length %>
 	<ul>
 	<% @student.attendance_records.each do | record | %>
-		<li><%= record.instruction_session.title %></li>
+		<li><%= link_to record.instruction_session.title, instruction_session_path( record ) %></li>
 	<% end %>
 	</ul>
 <% else %>

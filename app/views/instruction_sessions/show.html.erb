@@ -5,13 +5,13 @@
 	<ul>
 	<% if !@instruction_session.attendance_records.empty? %>
 		<% @instruction_session.attendance_records.each do | record | %>
-		<li><%= record.student.name %></li>
+		<li><%= link_to record.student.name, student_path( record.student ) %></li>
 		<% end %>
 	<% else %>
 		<li><p>Whoops, looks like no one attended this session!</p></li>
 	<% end %>
 	</ul>
-	
+
 
 
 <%= link_to 'Back To All Sessions', instruction_sessions_path %>
