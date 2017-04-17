@@ -1,7 +1,7 @@
 class InstructionSessionNotesController < ApplicationController
 
     def index
-        @notes = InstructionSessionNote.all
+        @notes = InstructionSessionNote.where( { :instruction_session_id => params[ :instruction_session_id ] } )
     end
 
     def new
